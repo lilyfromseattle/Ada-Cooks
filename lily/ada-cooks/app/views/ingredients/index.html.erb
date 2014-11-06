@@ -1,0 +1,11 @@
+<div class = "my-pages">
+<% @tweets.each do |tweet| %>
+<div class = "container-fluid my-con">
+  <h2><%= link_to tweet.author, "/show/#{tweet.id}", :class => "my-link" %></h2>
+  <h4><%= time_ago_in_words(tweet.created_at) %> ago</h4>
+  <p><%= tweet.body %></p>
+</div>
+<% end %>
+
+<%= link_to "New Tweet", "/new", :class => "my-link", :id =>  %>
+</div>
