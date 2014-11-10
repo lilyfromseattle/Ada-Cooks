@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    @recipe_ingredients = RecipeIngredient.all
     # @ingredients = RecipeIngredient.where("recipe_id = ?", params[:id])
   end
 
@@ -44,4 +45,20 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to recipes_path
   end
+
+    def create_recipe_ingredient
+     @recipe = Recipe.find(params[:id])
+     @recipe_ingredient = RecipeIngredient.new
+     @recipe_ingredient.ingredient_id = params[:ingredient_id]
+     @recipe_ingredient.recipe_id = @recipe.id
+     @recipe_ingredient.save
+     redirect_to edit_recipe_path(@recipe, :anchor => "ingredient")
+  end
+
+  def destroy_recipe_ingredient
+    @recipe = Recipe.find(params[:id])
+    RecipeIngredient.find_by(recipe_id: params[:id], ingredient_id: params[:ingredient_id]).destroy
+    redirect_to edit_recipe_path(@recipe, :anchor => "ingredient")
+  end
+
 end

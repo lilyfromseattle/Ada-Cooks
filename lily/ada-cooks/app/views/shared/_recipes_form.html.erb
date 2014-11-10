@@ -30,52 +30,40 @@
 
     </div>
 
+
     <div class="submit-button">
       <%= f.submit %>
     </div>
 
   <% end %>
 </div>
-<div class="recipe_ingredient-wrapper">
+
   <% if @recipe.save %>
   <a name="recipe_ingredient"></a>
-    <h2 class="page-title">Your recipe_ingredients</h2>
+    <h2 class="page-title">Ingredients</h2>
     <div class="form-wrapper">
-      <div class="current-recipe_ingredient-wrapper">
         <h3>Current recipe_ingredients:</h3>
           <% if @recipe.recipe_ingredients.size > 0 %>
-            <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-              <div class="recipe_ingredient-wrapper">
-                <%= label_tag(recipe_ingredient.name) %>
-                <div class="recipe_ingredient-div">
-                  <%= button_to "-", delete_recipe_ingredient_path(@recipe.id, recipe_ingredient_id: recipe_ingredient.id), class: "recipe_ingredient-button", method: :delete %>
-                </div>
-              </div>
-            <% end %>
+              <% @recipe.recipe_ingredients.each do |ingredient| %>
+                  <%= label_tag(ingredient.name) %>
+                  <%= button_to "-", action: delete_recipe_ingredient_path(@recipe.id, ingredient_id: ingredient.id), method: :destroy %>
+              <% end %>
           <% else %>
-            <p>No recipe_ingredients Added</p>
+            <p>No Ingredients Added</p>
           <% end %>
       </div>
 
-      <div class="add-recipe_ingredient-wrapper">
-        <h3>Add recipe_ingredient:</h3>
+        <h3>Add Ingredient:</h3>
           <% if @recipe_ingredients.size > 0 %>
             <% @recipe_ingredients.each do |recipe_ingredient| %>
-              <div class="recipe_ingredient-wrapper">
                 <%= label_tag(recipe_ingredient.name) %>
-                <div class="recipe_ingredient-div">
-                  <%= button_to "+", create_recipe_ingredient_path(@recipe.id, recipe_ingredient_id: recipe_ingredient.id), class: "recipe_ingredient-button", method: :post %>
-                </div>
-              </div>
+                <%= button_to "+", make_recipe_ingredient_path(@recipe.id, recipe_ingredient_id: recipe_ingredient.id), method: :post %>
             <% end %>
           <% else %>
-            <p>No More recipe_ingredients Available</p>
+            <p>No more ingredients available</p>
           <% end %>
-      </div>
 
-      <div class="add-new-recipe_ingredient-wrapper">
-        <%= link_to "Create New recipe_ingredient", new_recipe_ingredient_path, { class: "button-link" } %>
-      </div>
-    </div>
+
+        <%= link_to "Create New Ingredient", new_ingredient_path, { class: "my-link" } %>
   <% end %>
 </div>
