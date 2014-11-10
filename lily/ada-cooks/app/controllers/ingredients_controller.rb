@@ -1,4 +1,4 @@
-IngredientsController < ApplicationController
+class IngredientsController < ApplicationController
   def index
     @ingredients = Ingredient.all
   end
@@ -11,22 +11,27 @@ IngredientsController < ApplicationController
     @ingredient = Ingredient.find(params[:id])
   end
 
+  def show
+    @ingredients = Ingredient.all
+  end
+
   def update
-    @ingredient = Ingredient.find(params[:id])
-      if @ingredient.update(params.require[:ingredient].permit(:name, :creator, :cooktime, :cooktemp, :difficulty, :directions, :type))
-        redirect_to root_path
+    @ingredient = IngredientForm.new(params[:ingredient_form])
+      if @ingredient.update
+        redirect_to ingredients_path
       else
         render :edit
       end
   end
 
   def create
-    @ingredient = Ingredient.new(params.require(:ingredient).permit(:name, :creator, :cooktime, :cooktemp, :difficulty, :directions, :type))
+    @ingredient = IngredientForm.new(params[:ingredient_form])
     # raise params.inspect
     if @ingredient.save
-      redirect_to "/ingredients"
+      # redirect_to show_ingredient_path(@ingredient_form.ingredient.id)
+      redirect_to ingredients_path
     else
-      redirect_to "/ingredients/new"
+      redirect_to new_ingredient_path
     end
   end
 

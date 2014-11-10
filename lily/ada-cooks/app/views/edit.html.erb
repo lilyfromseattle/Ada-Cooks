@@ -1,0 +1,32 @@
+<div class = "my-pages">
+  <div class = "container-fluid my-con">
+<div class = "container my-pages">
+<%= form_tag recipes_path do |f| %>
+
+    <%= label_tag "recipe_form[name]" %>
+    <%= text_field_tag "recipe_form[name]" %>
+
+    <%= label_tag "recipe_form[preptime]" %>
+    <%= text_field_tag "recipe_form[preptime]" %>
+
+    <%= label_tag "recipe_form[cooktime]" %>
+    <%= text_field_tag "recipe_form[cooktime]" %>
+
+    <%= label_tag "recipe_form[cooktemp]" %>
+    <%= text_field_tag "recipe_form[cooktemp]" %>
+
+    <%= label_tag "recipe_form[type]" %>
+    <%= text_field_tag "recipe_form[type]" %>
+
+    <%= label_tag "recipe_form[directions]" %>
+    <%= text_field_tag "recipe_form[directions]" %>
+
+    <%= label_tag "recipe_form[creator]" %>
+    <%= text_field_tag "recipe_form[creator]" %>
+
+<%= submit_tag %>
+
+<% end %>
+</div>
+</div>
+</div>

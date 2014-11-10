@@ -1,0 +1,22 @@
+<div class = "my-pages">
+  <div class = "container-fluid my-con">
+    <div class = "container my-pages">
+    <%= form_tag update_ingredient_path(@ingredient) do |f| %>
+
+        <%= label_tag "Name" %>
+        <%= text_field_tag "ingredient_form[name]", @ingredient.name %>
+
+        <%= label_tag "Calories" %>
+        <%= text_field_tag "ingredient_form[calories]", @ingredient.calories %>
+
+        <%= Ingredient.all.each do |i|
+          <%= check_box_tag “recipe_form[ingredients][]”, ingredient.id %>
+          <%= label_tag “recipe_form[ingredients][]”, i.name %>
+        <% end %>
+
+    <%= submit_tag %>
+
+    <% end %>
+    </div>
+  </div>
+</div>

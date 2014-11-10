@@ -1,0 +1,7 @@
+describe User do
+  pending "add some examples to or delet #{__FILE__}"
+end
+
+spec > models >user_spec.rb
+
+delete --warnings from .rspec file

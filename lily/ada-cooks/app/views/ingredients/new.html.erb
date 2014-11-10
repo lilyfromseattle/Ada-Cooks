@@ -1,0 +1,17 @@
+<div class = "my-pages">
+  <div class = "container-fluid my-con">
+    <div class = "container my-pages">
+    <%= form_tag new_ingredient_path do |f| %>
+
+        <%= label_tag "name" %>
+        <%= text_field_tag "ingredient_form[name]", @ingredient.name %>
+
+        <%= label_tag "Calorie Count" %>
+        <%= text_field_tag "ingredient_form[calories]", @ingredient.calories %>
+
+    <%= submit_tag %>
+
+    <% end %>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,10 @@
 <div class = "my-pages">
 <div class = "container-fluid my-con">
 <h2><%= @ingredient.name %></h2>
+<div class = "edit-delete">
+  <td><%= link_to image_tag("edit.png", :class => "my-icons"), "/ingredients/edit/#{@ingredient.id}" %></td>
+  <td><%= link_to image_tag("trash.png", :class => "my-icons"), "/ingredients/destroy/#{@ingredient.id}" %></td>
+</div>
+<h4><span>Calories:</span> <%= @ingredient.calories %></h4>
 </div>
 </div>

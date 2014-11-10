@@ -1,17 +1,19 @@
 Rails.application.routes.draw do
-    get  "/ingredients",              to: "ingredients#index"
-    get  "/ingredients/show/:id",     to: "ingredients#show"
-    get "/ingredients/edit/:id",      to: "ingredients#edit"
-    post "/ingredients/edit/:id",     to: "ingredients#update"
-    post "/ingredients/new",          to: "ingredients#create"
-    get  "/ingredients/new",          to: "ingredients#new"
+    get  "/ingredients",              to: "ingredients#index",         as: :ingredients
+    get  "/ingredients/show/:id",     to: "ingredients#show",          as: :show_ingredient
+    get "/ingredients/edit/:id",      to: "ingredients#edit",          as: :edit_ingredient
+    post "/ingredients/edit/:id",     to: "ingredients#update",        as: :update_ingredient
+    post "/ingredients/new",          to: "ingredients#create",        as: :create_ingredient
+    get  "/ingredients/new",          to: "ingredients#new",           as: :new_ingredient
+    get "/ingredients/destroy/:id",          to: "ingredients#destroy",           as: :destroy_ingredient_path
 
-    get  "/recipes",                  to: "recipes#index"
-    get  "/recipes/show/:id",         to: "recipes#show"
-    get "/recipes/edit/:id",          to: "recipes#edit"
-    post "/recipes/edit/:id",         to: "recipes#update"
-    post "/recipes/new",              to: "recipes#create"
-    get  "/recipes/new",              to: "recipes#new"
+    get  "/recipes",                  to: "recipes#index",             as: :recipes
+    get  "/recipes/show/:id",         to: "recipes#show",              as: :show_recipe
+    get "/recipes/edit/:id",          to: "recipes#edit",              as: :edit_recipe
+    post "/recipes/edit/:id",         to: "recipes#update",            as: :update_recipe
+    post "/recipes/new",              to: "recipes#create",            as: :create_recipe
+    get  "/recipes/new",              to: "recipes#new",               as: :new_recipe
+    get "/recipes/destroy/:id",          to: "recipes#destroy",           as: :destroy_recipe_path
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

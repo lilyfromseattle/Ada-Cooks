@@ -1,11 +1,11 @@
 <div class = "my-pages">
-<% @tweets.each do |tweet| %>
+<% @ingredients.each do |ingredient| %>
 <div class = "container-fluid my-con">
-  <h2><%= link_to tweet.author, "/show/#{tweet.id}", :class => "my-link" %></h2>
-  <h4><%= time_ago_in_words(tweet.created_at) %> ago</h4>
-  <p><%= tweet.body %></p>
+  <h2><%= link_to ingredient.name, "/ingredients/show/#{ingredient.id}", :class => "my-link" %></h2>
+  <h4><span>Calories:</span> <%= ingredient.calories %> </h4>
+
 </div>
 <% end %>
 
-<%= link_to "New Tweet", "/new", :class => "my-link", :id =>  %>
+<%= link_to "New Ingredient", "/ingredients/new", :class => "my-link"  %>
 </div>

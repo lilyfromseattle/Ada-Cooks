@@ -1,0 +1,18 @@
+<div class = "my-pages">
+<div class = "container-fluid my-con">
+<h2><%= @recipe.name %></h2>
+<div class = "edit-delete">
+  <td><%= link_to image_tag("edit.png", :class => "my-icons"), "/recipes/edit/#{@recipe.id}" %></td>
+  <td><%= link_to image_tag("trash.png", :class => "my-icons"), "/recipes/destroy/#{@recipe.id}" %></td>
+</div>
+<h4>Created <%= time_ago_in_words(@recipe.created_at) %> ago</h4>
+<h4><span>Preptime:</span> <%= @recipe.preptime %> minutes</h4>
+<h4><span>Cooktime:</span> <%= @recipe.cooktime %> minutes</h4>
+<h4><span>Oven Temperature:</span> <%= @recipe.cooktemp %>°</h4>
+<h4><span>Ingredients:</span></h4>
+  <% @ingredients.each do |ingredient| %>
+  <h4><%= ingredient.name %></h4>
+  <% end %>
+<p><span>Directions:</span> <%= @recipe.directions %></p>
+</div>
+</div>

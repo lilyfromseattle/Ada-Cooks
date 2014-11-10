@@ -16,7 +16,7 @@
 
 body {
   font-family: 'Poiret One', cursive;
-  background: pink;
+  background: beige;
   text-align: center;
   margin: 0;
 
@@ -24,10 +24,18 @@ body {
 
 #my-header {
   font-size: 2em;
+  font-style: italic;
+  /*display: none;*/
+
+}
+
+.grey {
+  color: dimgrey;
 }
 
 span {
-  color: pink;
+  color: tomato;
+  /*font-style: none;*/
 }
 .my-nav {
   background: white;
@@ -47,11 +55,16 @@ span {
 }
 
 .my-link {
-  color: dimgrey;
+  color: tomato;
   text-decoration: none;
 }
 
 .my-pages {
   padding-top: 100px;
   padding-bottom: 50px;
+}
+
+.my-icons {
+  width: 20px;
+  margin: 10px;
 }

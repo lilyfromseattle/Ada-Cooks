@@ -1,13 +1,12 @@
 <div class = "my-pages">
 <% @recipes.each do |recipe| %>
 <div class = "container-fluid my-con">
-  <h2><%= link_to recipe.name, "/show/#{recipe.id}", :class => "my-link" %></h2>
-  <h4><%= time_ago_in_words(recipe.created_at) %> </h4>
-  <h4><%= recipe.cooktime %></h4>
-  <h4><%= recipe.cooktemp %></h4>
-  <p><%= recipe.directions %></p>
+  <h2><%= link_to recipe.name, "/recipes/show/#{recipe.id}", :class => "my-link" %></h2>
+  <h4>Created <%= time_ago_in_words(recipe.created_at) %> ago by <span class = "grey"><%= recipe.creator %></span></h4>
+  <h4><span>Preptime:</span> <%= recipe.preptime %> minutes</h4>
+  <h4><span>Cooktime:</span> <%= recipe.cooktime %> minutes</h4>
 </div>
 <% end %>
 
-<%= link_to "New Recipe", "/new", :class => "my-link", :id =>  %>
+<%= link_to "New Recipe", "/recipes/new", :class => "my-link"  %>
 </div>
